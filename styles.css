@@ -9,8 +9,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
 .site-header{backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(0,0,0,0.25),transparent);border-bottom:1px solid rgba(255,255,255,0.03);transition:box-shadow .28s,background .28s,backdrop-filter .28s}
 .site-header.scrolled{position:fixed;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(2,6,23,0.88),rgba(2,6,23,0.72));border-bottom-color:rgba(255,255,255,0.06);box-shadow:0 8px 28px rgba(2,6,23,0.6);backdrop-filter:blur(8px)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:padding .22s}
-.brand{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.125rem}
-.nav a{color:var(--muted);text-decoration:none;margin:0 0.6rem}
+.brand{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.125rem;cursor:pointer}
+.nav a{color:var(--muted);text-decoration:none;margin:0 0.6rem;cursor:pointer}
 .controls{display:flex;gap:.6rem;align-items:center}
 .controls .cta{background:var(--accent);border:none;padding:.6rem 1rem;border-radius:8px;color:#042029;cursor:pointer}
 .controls button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:.45rem;border-radius:8px;color:var(--muted);cursor:pointer}
@@ -18,12 +18,20 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
 .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:center}
 .hero-text h1{font-size:2.25rem;margin:.2rem 0}
 .lead{color:var(--muted);font-size:1.05rem;line-height:1.6}
-.hero-card img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--glass)}
-.btn{display:inline-block;background:var(--accent);color:#022; padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:600}
+.hero-card{position:relative;padding:8px;background:linear-gradient(135deg, var(--accent), #3b82f6, #8b5cf6);border-radius:18px;box-shadow:0 20px 60px rgba(110,231,183,0.3)}
+.hero-card::before{content:"";position:absolute;inset:0;border-radius:18px;padding:3px;background:linear-gradient(135deg, var(--accent), #3b82f6, #8b5cf6);-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);mask-composite:exclude;animation:rotate 3s linear infinite}
+.hero-card img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:none;cursor:pointer;position:relative;z-index:1;background:var(--card)}
+
+@keyframes rotate{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(360deg)}
+}
+.btn{display:inline-block;background:var(--accent);color:#022; padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:600;cursor:pointer}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
 .section{padding:3rem 0}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
-.project-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform .28s}
+.project-card-link{text-decoration:none;color:inherit;display:block}
+.project-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform .28s;cursor:pointer}
 .project-card img{width:100%;height:140px;object-fit:cover}
 .project-body{padding:1rem}
 .project-body h3{margin:.2rem 0}
@@ -36,7 +44,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
 
 .about-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
 .about-col .col-title{font-size:1.25rem;margin-bottom:.75rem;color:var(--accent)}
-.card{background:var(--card);padding:1.2rem;border-radius:14px;border:1px solid var(--glass);box-shadow:0 10px 30px rgba(2,6,23,0.45);margin-bottom:1rem}
+.card{background:var(--card);padding:1.2rem;border-radius:14px;border:1px solid var(--glass);box-shadow:0 10px 30px rgba(2,6,23,0.45);margin-bottom:1rem;cursor:pointer}
 .card h4{margin:.1rem 0}
 .card .muted{color:var(--accent);font-weight:700;margin-bottom:.5rem}
 
@@ -55,42 +63,68 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
   .skills-grid{grid-template-columns:1fr}
 }
 
-/* boxed skills grid: two rows layout */
-.skills-boxes{
-  display:grid;
-  grid-template-rows:repeat(2, auto);
-  grid-auto-flow:column;
-  grid-auto-columns:minmax(200px,1fr);
-  gap:1rem;
-  align-items:start;
+/* Skills section with separate categories */
+.skills-category {
+  margin-bottom: 2.5rem;
 }
-.skill-box{
-  background:var(--card);
-  border-radius:10px;
-  padding:0.85rem 1rem;
-  border:1px solid var(--glass);
-  color:var(--text);
-  box-shadow:0 8px 20px rgba(2,6,23,0.45);
-  font-size:0.98rem;
-  line-height:1.35;
+
+.skills-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category-title {
+  color: #f59e0b;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #f59e0b;
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.skill-box {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--glass);
+  color: var(--text);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.45);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(2,6,23,0.6);
+  border-color: var(--accent);
 }
 
 @media (max-width:880px){
-  .skills-boxes{grid-template-rows:unset;grid-auto-flow:row;grid-template-columns:1fr}
+  .skills-row {
+    grid-template-columns: 1fr;
+  }
 }
 .contact-form{max-width:800px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:12px;border:1px solid var(--glass)}
 .contact-form .row{display:flex;gap:.6rem}
 .contact-form input,.contact-form textarea{flex:1;padding:.8rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text)}
 .form-actions{display:flex;gap:.6rem;margin-top:.6rem}
-.site-footer{padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:2rem;background:rgba(2,10,14,0.3)}
-.footer-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:2rem;align-items:start}
+.site-footer{padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:2rem;background:rgba(2,10,14,0.3);width:100%}
+.footer-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:2rem;align-items:start;max-width:1100px;margin:0 auto;padding:0 2rem}
 .footer-col h3{margin:0 0 .4rem 0;color:var(--text);font-size:1.25rem}
 .footer-tagline{color:var(--muted);margin:0;font-size:.95rem}
 .footer-contact p{margin:.35rem 0;color:var(--muted);font-size:.95rem}
 .footer-social{text-align:right}
 .social-icons{display:flex;gap:.75rem;justify-content:flex-end;margin-bottom:.6rem}
-.social-icons a{font-size:1.5rem;transition:transform .22s,opacity .22s,color .22s,filter .22s}
-.social-icons a:hover{transform:translateY(-4px) scale(1.15);filter:brightness(1.3) saturate(1.2)}
+.social-icons a{font-size:1.5rem;transition:transform .22s,opacity .22s,color .22s,filter .22s;cursor:pointer;color:var(--muted)}
+.social-icons a:hover{transform:translateY(-4px) scale(1.15);filter:brightness(1.3) saturate(1.2);color:var(--accent)}
 .copyright{color:var(--muted);font-size:.85rem;margin:0}
 @media (max-width:880px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-social{text-align:center}.social-icons{justify-content:center}}
 @media (max-width:880px){.hero-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.header-inner{padding:0 1rem}.nav{display:none}}
@@ -99,7 +133,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
 .accent{color:var(--accent)}
 
 /* Section background accents: subtle alternating panels to make each section distinct */
-.section{position:relative;overflow:visible}
+.section{position:relative;overflow:visible;opacity:0;transform:translateY(30px);transition:opacity 0.8s ease, transform 0.8s ease}
+.section.visible{opacity:1;transform:translateY(0)}
 .section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:1}
 .hero::before{background:linear-gradient(135deg, rgba(15,23,36,0.5), rgba(11,18,32,0.7))}
 .projects::before{background:linear-gradient(135deg, rgba(7,16,40,0.6), rgba(2,10,20,0.8))}
@@ -116,8 +151,9 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helve
 
 .skill-box:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(110,231,183,0.15);background:linear-gradient(135deg, var(--card), rgba(110,231,183,0.04));border-color:var(--accent)}
 
-.hero-card img{transition:transform .5s ease, filter .3s ease}
+.hero-card img{transition:transform .5s ease, filter .3s ease, box-shadow .3s ease}
 .hero-card img:hover{transform:scale(1.02);filter:brightness(1.08) saturate(1.1)}
+.hero-card:hover{box-shadow:0 25px 70px rgba(110,231,183,0.4)}
 
 .btn{transition:all .28s ease}
 .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(110,231,183,0.3);background:var(--text);color:var(--bg)}

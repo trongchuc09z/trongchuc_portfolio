@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio — Nguyễn Trọng Chức</title>
+  <title>About Nguyen Trong Chuc</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,11 +25,13 @@
       <div class="container header-inner">
         <a class="brand" href="#">Nguyễn Trọng Chức</a>
         <nav class="nav" id="nav">
+          <a href="#">Giới thiệu</a>
           <a href="#projects">Dự án</a>
-          <a href="#about">Giới thiệu</a>
+          <a href="#about">Kinh nghiệm</a>
           <a href="#skills">Kỹ năng</a>
         </nav>
         <div class="controls">
+          <button id="langToggle" aria-label="Chuyển ngôn ngữ" title="Switch Language">🇻🇳</button>
           <button id="themeToggle" aria-label="Chuyển giao diện">🌙</button>
         </div>
       </div>
@@ -42,8 +45,8 @@
             <p class="lead">Mình là một Game Developer đam mê tạo ra những trải nghiệm tương tác độc đáo. Mình yêu thích việc kết hợp lập trình, thiết kế và sáng tạo để biến ý tưởng thành những trò chơi sống động. Với nền tảng vững chắc về ngôn ngữ lập trình và tư duy logic, mình luôn nỗ lực học hỏi công nghệ mới để mang đến sản phẩm chất lượng và hấp dẫn hơn.</p>
             <div class="hero-actions">
               <a href="#projects" class="btn">Xem dự án</a>
-              <a href="#about" class="btn">Tải xuống CV</a>
               <a href="#skills" class="btn">Kỹ năng</a>
+              <a href="Nguyen-Trong-Chuc-TopCV.vn-071125.00123.pdf" class="btn" download>Tải xuống CV</a>
             </div>
           </div>
           <div class="hero-card">
@@ -56,41 +59,38 @@
         <div class="container">
           <h2>Dự án tiêu biểu</h2>
           <div class="projects-grid">
-            <article class="project-card">
-              <img src="https://images.unsplash.com/photo-1559028012-481c2f0b7c29?q=80&w=800&auto=format&fit=crop" alt="Project 1"/>
-              <div class="project-body">
-                <h3>Ứng dụng A</h3>
-                <p>Single-page app với React và Node.js — hiệu suất cao, UI mượt mà.</p>
-                <div class="project-meta">
-                  <span>React</span>
-                  <span>Node.js</span>
+            <a href="https://github.com/trongchuc09z/Combatant-Platformer-2D-Game" target="_blank" rel="noopener noreferrer" class="project-card-link">
+              <article class="project-card">
+                <!-- <img src="https://images.unsplash.com/photo-1559028012-481c2f0b7c29?q=80&w=800&auto=format&fit=crop" alt="Project 1"/> -->
+                <div class="project-body">
+                  <h3>Game platform bằng Unity</h3>
+                  <p>Đây là một trò chơi hành động , trong đó mục tiêu cốt lõi là di chuyển nhân vật
+người chơi giữa các điểm trong môi trường và đánh bại quái vật để mở khóa
+các kĩ năng tiềm ẩn.</p>
+                  <div class="project-meta">
+                    <span>C#</span>
+                    <span>Unity</span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </a>
 
-            <article class="project-card">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" alt="Project 2"/>
-              <div class="project-body">
-                <h3>Website B</h3>
-                <p>Thiết kế responsive cho khách hàng, tối ưu SEO và tốc độ tải.</p>
-                <div class="project-meta">
-                  <span>HTML/CSS</span>
-                  <span>Performance</span>
+            <a href="https://github.com/trongchuc09z/Infinity-Gunfight" target="_blank" rel="noopener noreferrer" class="project-card-link">
+              <article class="project-card">
+                <!-- <img src="https://images.unsplash.com/photo-1526378724366-6f6b0b480c2b?q=80&w=800&auto=format&fit=crop" alt="Project 3"/> -->
+                <div class="project-body">
+                  <h3>Game online bằng Unity </h3>
+                  <p>Là một trò chơi hành động lấy ý tưởng từ game PUBG, mỗi đội sẽ có từ 3 đê 5
+thành viên được trang bị súng và lựu đạn, nhiệm vụ là sẽ tiêu diệt kẻ địch nếu
+đội nào đạt được tổng số kill nhất định trước sẽ chiến thắng.
+.</p>
+                  <div class="project-meta">
+                    <span>C#</span>
+                    <span>Unity</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img src="https://images.unsplash.com/photo-1526378724366-6f6b0b480c2b?q=80&w=800&auto=format&fit=crop" alt="Project 3"/>
-              <div class="project-body">
-                <h3>Tool C</h3>
-                <p>Ví dụ một thư viện/utility giúp tăng tốc phát triển.</p>
-                <div class="project-meta">
-                  <span>Library</span>
-                  <span>Open-source</span>
-                </div>
-              </div>
-            </article>
+              </article>
+            </a>
           </div>
         </div>
       </section>
@@ -107,29 +107,38 @@
                 <h3 class="col-title">Học vấn</h3>
                 <div class="card">
                   <h4>Học viện Công nghệ Bưu chính Viễn thông</h4>
+                  <p class="muted">GPA: 3.2</p>
                   <p class="muted">Hiện vẫn đang theo học</p>
-                  <p>Sinh viên ngành Công nghệ thông tin, chuyên ngành Phát triển ứng dụng / Game.</p>
+                  <p>Sinh viên ngành Công nghệ đa phương tiện, chuyên ngành Phát triển ứng dụng / Game.</p>
                 </div>
 
                 <div class="card">
-                  <h4>Trung học Phổ thông Bình Minh</h4>
-                  <p class="muted">2018 - 2021</p>
+                  <h4>Trung học Phổ thông Thanh Miện</h4>
+                  <p class="muted">2019 - 2022</p>
                 </div>
               </div>
 
               <div class="about-col">
-                <h3 class="col-title">Giải thưởng</h3>
+                <h3 class="col-title">Chứng chỉ</h3>
                 <div class="card">
-                  <h4>Cuộc thi Khoa học Kĩ thuật tỉnh Ninh Bình</h4>
-                  <p class="muted">2018 - 2019</p>
-                  <p>Giải nhất (Lĩnh vực Hệ thống nhúng)</p>
+                  <h4>TOEIC 600+</h4>
+                  <p class="muted">T02/2023</p>
+                </div>
+                <div class="card">
+                  <h4>Course of Applications of Algorithm organized by Samsung</h4>
+                  <p class="muted">T8/2024</p>
                 </div>
 
                 <div class="card">
-                  <h4>Sáng tạo trẻ tỉnh Ninh Bình</h4>
-                  <p class="muted">2018 - 2019</p>
-                  <p>Giải nhì (Lĩnh vực Khoa học Xã hội)</p>
+                  <h4>Microsoft Office Specialist – Microsoft Excel Office 2019</h4>
+                  <p class="muted">T04/2024</p>
                 </div>
+
+                <div class="card">
+                  <h4>Course Ucademy: The complete Unity2D, Unity3D Course</h4>
+                  <p class="muted">T12/2024</p>
+                </div>
+
               </div>
             </div>
         </div>
@@ -138,17 +147,26 @@
       <section id="skills" class="section skills">
         <div class="container">
             <h2>Kỹ năng</h2>
-            <div class="skills-boxes" aria-label="Kỹ năng">
-              <div class="skill-box">Ngôn ngữ: C / C++ / C# / Java / Python</div>
-              <div class="skill-box">HTML5, CSS3, SCSS</div>
-              <div class="skill-box">ReactJS, Node.js, Express.js, RESTful API</div>
-              <div class="skill-box">SQL, NoSQL (MySQL, MongoDB)</div>
-              <div class="skill-box">Git, GitHub, Fork</div>
+            
+            <div class="skills-category">
+              <h3 class="skills-category-title">Kỹ năng chuyên môn</h3>
+              <div class="skills-row">
+                <div class="skill-box">Ngôn ngữ: C / C++ / C# / Java / Python</div>
+                <div class="skill-box">HTML5, CSS3, SCSS</div>
+                <div class="skill-box">ReactJS, Node.js, Express.js, RESTful API</div>
+                <div class="skill-box">SQL, NoSQL (MySQL, MongoDB)</div>
+                <div class="skill-box">Git, GitHub, Fork</div>
+              </div>
+            </div>
 
-              <div class="skill-box"><strong>TIN HỌC VĂN PHÒNG</strong><br/>Word, Excel, Powerpoint, Canva</div>
-              <div class="skill-box">Công cụ hỗ trợ: Blender, Photoshop, Figma</div>
-              <div class="skill-box">Quản lý và làm việc đội nhóm</div>
-              <div class="skill-box">Điều hành cuộc họp, phân chia nhiệm vụ</div>
+            <div class="skills-category">
+              <h3 class="skills-category-title">Kỹ năng mềm</h3>
+              <div class="skills-row">
+                <div class="skill-box"><strong>TIN HỌC VĂN PHÒNG</strong><br/>Word, Excel, Powerpoint, Canva</div>
+                <div class="skill-box">Công cụ hỗ trợ: Blender, Photoshop, Figma</div>
+                <div class="skill-box">Quản lý và làm việc đội nhóm</div>
+                <div class="skill-box">Điều hành cuộc họp, phân chia nhiệm vụ</div>
+              </div>
             </div>
         </div>
       </section>
@@ -169,10 +187,10 @@
 
       <div class="footer-col footer-social">
         <div class="social-icons">
-          <a href="#" aria-label="Instagram">📷</a>
-          <a href="#" aria-label="GitHub">🐙</a>
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Discord">💬</a>
+          <a href="https://www.instagram.com/trchuc_292/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/trongchuc09z" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.facebook.com/nguyen.trong.chuc.723190" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
         </div>
       </div>
     </div>
